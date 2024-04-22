@@ -9,7 +9,7 @@ contract TokenSwapper {
     address private constant WBTC = 0x577D296678535e4903D59A4C929B718e1D575e0A;
     address private constant USDC = 0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48;
     // Target wallet where USDC will be sent after swap
-    address private constant HITMARKS_WALLET = msg.sender; //for the testing purpose we set the target address as msg.sender
+    address private HITMARKS_WALLET; //for the testing purpose we set the target address as msg.sender
 
     IUniswapV2Router01 public uniswapRouter;
 
@@ -22,6 +22,7 @@ contract TokenSwapper {
     );
 
     constructor() public {
+        HITMARKS_WALLET = msg.sender;
         uniswapRouter = IUniswapV2Router01(UNISWAP_V2_ROUTER);
     }
 
